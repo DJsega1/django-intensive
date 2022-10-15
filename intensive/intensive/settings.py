@@ -11,21 +11,25 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Enviroment variables
+env_vars = load_dotenv(os.path.join(BASE_DIR.parent + '/.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-i7u1s+!d05n8$%l^&+r!wl%=b7)rkx$af98$u(jowvs2q8u-n@"
+SECRET_KEY = env_vars["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env_vars["DEBUG"]
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env_vars["ALLOWED_HOSTS"]
 
 
 # Application definition
@@ -85,12 +89,14 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
-    },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {"NAME": "django.contrib.auth.password_validation\
+              .UserAttributeSimilarityValidator",},
+    {"NAME": "django.contrib.auth.password_validation\
+              .MinimumLengthValidator",}, 
+    {"NAME": "django.contrib.auth.password_validation.\
+              CommonPasswordValidator",}, 
+    {"NAME": "django.contrib.auth.password_validation.\
+              NumericPasswordValidator",}, 
 ]
 
 
