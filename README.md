@@ -18,6 +18,9 @@ venv\Scripts\activate.bat
 pip install -r requirements.txt
 ```
 
+**For the site to work correctly, download .env file - https://disk.yandex.ru/d/u097abQjQsEJOQ**  
+**Then put it in project directory (path should be "django-intensive/.env")**  
+
 **To start the development server on**  
 ```
 python manage.py runserver
