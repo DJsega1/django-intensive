@@ -24,5 +24,5 @@ python manage.py runserver
 ```  
 The project starts on **127.0.0.1:8000** by default.  
 If you want to change that, read the docs:  
-https://docs.djangoproject.com/en/4.1/ref/django-admin/#runserver  
+https://docs.djangoproject.com/en/3.2/ref/django-admin/#runserver  
 **Press Ctrl+C in order to stop the server.**
