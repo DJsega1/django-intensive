@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ```
 SECRET_KEY = 'django-insecure-i7u1s+!d05n8$%l^&+r!wl%=b7)rkx$af98$u(jowvs2q8u-n@'
 DEBUG = True
-ALLOWED_HOSTS = '127.0.0.1, '
+ALLOWED_HOSTS = '127.0.0.1 localhost'
 ```
 
 **To start the development server on**  
