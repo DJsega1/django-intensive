@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ```
 
 **For the site to work correctly, create .env file in the project directory (path should be "django-intensive/.env")**  
-**Write in it the following variables (if you want to add some hosts, write separate it by whitespace):**
+**Write in it the following variables (if you want to add some hosts, separate it by whitespace):**
 ```
 SECRET_KEY = 'django-insecure-i7u1s+!d05n8$%l^&+r!wl%=b7)rkx$af98$u(jowvs2q8u-n@'
 DEBUG = True
