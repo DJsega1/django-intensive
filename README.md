@@ -23,6 +23,7 @@ pip install -r requirements.txt
 
 **To start the development server on**  
 ```
+cd intensive
 python manage.py runserver
 ```  
 The project starts on **127.0.0.1:8000** by default.  
