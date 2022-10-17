@@ -6,7 +6,6 @@ git clone https://github.com/DJsega1/django-intensive.git
 cd django-intensive
 ```  
 ## Create an virtual environment
-___
 **Windows**
 ```
 python -m venv venv
@@ -17,7 +16,6 @@ python3 -m venv venv
 ```
   
 ## Activate virtual enviroment
-___
 **Windows**
 ```
 venv\Scripts\activate
@@ -28,7 +26,6 @@ source venv/bin/activate
 ```
 
 ## Install the project dependencies
-___
 **Windows**
 ```
 pip install -r requirements.txt
@@ -38,7 +35,6 @@ pip install -r requirements.txt
 pip3 install -r requirements.txt
 ```
 ## Create .env file 
-___
 **Create .env file in the project directory (path should be "django-intensive/.env")**  
 **Write in it the following variables (if you want to add some hosts, separate it by whitespace):**
 ```
@@ -47,11 +43,17 @@ DEBUG = *True or False*
 ALLOWED_HOSTS = '{host1} {host2}'
 ```
 ## Start the development server
-___
 ```
 cd intensive
+```
+**Windows**
+```
 python manage.py runserver
 ```  
+**Linux/Mac**
+```
+python3 manage.py runserver
+```
 ___
 The project starts on **127.0.0.1:8000** by default.  
 If you want to change that, read the docs:  
