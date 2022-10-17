@@ -43,16 +43,13 @@ DEBUG = *True or False*
 ALLOWED_HOSTS = '{host1} {host2}'
 ```
 ## Start the development server
-```
-cd intensive
-```
 **Windows**
 ```
-python manage.py runserver
+python intensive/manage.py runserver
 ```  
 **Linux/Mac**
 ```
-python3 manage.py runserver
+python3 intensive/manage.py runserver
 ```
 ___
 The project starts on **127.0.0.1:8000** by default.  
