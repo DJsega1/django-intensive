@@ -1,5 +1,4 @@
 # Getting started
-___
 **Open your cmd, then clone the project**  
 ```
 cd *your_directory*
@@ -7,10 +6,17 @@ git clone https://github.com/DJsega1/django-intensive.git
 cd django-intensive
 ```  
 
-**Create and start a virtual environment**  
+**Create an virtual environment**  
 ```
 python -m venv venv
-venv\Scripts\activate.bat
+```
+**If you use Windows, activate venv with this:**
+```
+venv\Scripts\activate
+```
+**If you use Linux/Mac, activate venv with this:**
+```
+source venv/Scripts/activate
 ```
 
 **Install the project dependencies**  
