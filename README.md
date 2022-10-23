@@ -45,11 +45,11 @@ ALLOWED_HOSTS = '{host1} {host2}'
 ## Start the development server
 **Windows**
 ```
-python intensive/manage.py runserver
+python manage.py runserver
 ```  
 **Linux/Mac**
 ```
-python3 intensive/manage.py runserver
+python3 manage.py runserver
 ```
 ___
 The project starts on **127.0.0.1:8000** by default.  

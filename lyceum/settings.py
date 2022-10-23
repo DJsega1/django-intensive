@@ -15,7 +15,7 @@ SECRET_KEY: str = env_vars["SECRET_KEY"]
 
 DEBUG: bool = strtobool(env_vars["DEBUG"])
 
-ALLOWED_HOSTS: list = env_vars["ALLOWED_HOSTS"].split(" ")
+ALLOWED_HOSTS: list = [] if DEBUG else env_vars["ALLOWED_HOSTS"].split(" ")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -39,7 +39,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "intensive.urls"
+ROOT_URLCONF = "lyceum.urls"
 
 TEMPLATES = [
     {
@@ -57,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "intensive.wsgi.application"
+WSGI_APPLICATION = "lyceum.wsgi.application"
 
 DATABASES = {
     "default": {
