@@ -18,8 +18,6 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
-print(SECRET_KEY, DEBUG, ALLOWED_HOSTS)
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
