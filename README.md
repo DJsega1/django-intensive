@@ -34,13 +34,12 @@ pip install -r requirements.txt
 ```
 pip3 install -r requirements.txt
 ```
-## Create .env file 
-**Create .env file in the project directory (path should be "django-intensive/.env")**  
-**Write in it the following variables (if you want to add some hosts, separate it by whitespace):**
+## Setting environment
+**Set variables in .env file (if you want to add some hosts, separate it by whitespace):**
 ```
-SECRET_KEY = '{your_secret_key}'
-DEBUG = *True or False*
-ALLOWED_HOSTS = '{host1} {host2}'
+SECRET_KEY = 'NOT_SO_SECRET_KEY'
+DEBUG = True
+ALLOWED_HOSTS = '127.0.0.1 localhost'
 ```
 ## Start the development server
 **Windows**
