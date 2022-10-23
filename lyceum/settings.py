@@ -1,21 +1,24 @@
-from distutils.util import strtobool
 from pathlib import Path
-
-from dotenv import dotenv_values, find_dotenv
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-env_vars = dotenv_values(find_dotenv())
+import os
+from environ import Env
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env_vars = dotenv_values(find_dotenv())
+env = Env(
+    SECRET_KEY=(str),
+    DEBUG=(bool),
+    ALLOWED_HOSTS=(list),
+)
 
-SECRET_KEY: str = env_vars["SECRET_KEY"]
+Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-DEBUG: bool = strtobool(env_vars["DEBUG"])
+SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS: list = [] if DEBUG else env_vars["ALLOWED_HOSTS"].split(" ")
+DEBUG = env('DEBUG')
+
+ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+
+print(SECRET_KEY, DEBUG, ALLOWED_HOSTS)
 
 INSTALLED_APPS = [
     "django.contrib.admin",

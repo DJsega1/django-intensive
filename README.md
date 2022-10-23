@@ -35,11 +35,11 @@ pip install -r requirements.txt
 pip3 install -r requirements.txt
 ```
 ## Setting environment
-**Set variables in .env file (if you want to add some hosts, separate it by whitespace):**
+**Set variables in .env file:**
 ```
-SECRET_KEY = 'NOT_SO_SECRET_KEY'
-DEBUG = True
-ALLOWED_HOSTS = '127.0.0.1 localhost'
+SECRET_KEY=NOT_SO_SECRET_KEY
+DEBUG=True
+ALLOWED_HOSTS=127.0.0.1,localhost
 ```
 ## Start the development server
 **Windows**
