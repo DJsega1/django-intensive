@@ -16,9 +16,13 @@ python3 -m venv venv
 ```
   
 ## Activate virtual enviroment
-**Windows**
+**Windows CMD**
 ```
 venv\Scripts\activate
+```
+**Windows PowerShell or Bash**
+```
+. venv/Scripts/activate
 ```
 **Linux/Mac**
 ```
