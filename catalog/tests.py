@@ -9,7 +9,7 @@ class URLTests(TestCase):
 
     def test_item_detail_endpoint(self):
 
-        with self.subTest("Item in catalog with negative integer index"):
+        with self.subTest("Item in catalog with negative index"):
             response = self.client.get('/catalog/-1/')
             self.assertEqual(response.status_code, 404)
 
