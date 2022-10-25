@@ -35,7 +35,7 @@ pip install -r requirements.txt
 pip3 install -r requirements.txt
 ```
 ## Setting environment
-**Create .env file and set variables like in .env.example:**
+**Create .env file and set variables like in .env example:**
 ```
 SECRET_KEY=NOT_SO_SECRET_KEY
 DEBUG=True
