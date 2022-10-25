@@ -6,7 +6,7 @@ git clone https://github.com/DJsega1/django-intensive.git
 cd django-intensive
 ```  
 ## Create an virtual environment
-**Windows**
+**Windows with Bash**
 ```
 python -m venv venv
 ```
@@ -16,11 +16,7 @@ python3 -m venv venv
 ```
   
 ## Activate virtual enviroment
-**Windows CMD**
-```
-venv\Scripts\activate
-```
-**Windows PowerShell or Bash**
+**Windows with Bash**
 ```
 . venv/Scripts/activate
 ```
@@ -30,7 +26,7 @@ source venv/bin/activate
 ```
 
 ## Install the project dependencies
-**Windows**
+**Windows with Bash**
 ```
 pip install -r requirements.txt
 ```
@@ -39,14 +35,14 @@ pip install -r requirements.txt
 pip3 install -r requirements.txt
 ```
 ## Setting environment
-**Set variables in .env file:**
+**Create .env file and set variables like in .env.example:**
 ```
 SECRET_KEY=NOT_SO_SECRET_KEY
 DEBUG=True
 ALLOWED_HOSTS=127.0.0.1,localhost
 ```
 ## Start the development server
-**Windows**
+**Windows with Bash**
 ```
 python manage.py runserver
 ```  

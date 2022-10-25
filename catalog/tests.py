@@ -8,23 +8,14 @@ class URLTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_item_detail_endpoint(self):
-
-        with self.subTest("Item in catalog with negative index"):
-            response = self.client.get('/catalog/-1/')
-            self.assertEqual(response.status_code, 404)
-
-        with self.subTest("Item in catalog with string index"):
-            response = self.client.get('/catalog/some-string/')
-            self.assertEqual(response.status_code, 404)
-
-        with self.subTest("Item in catalog with zero index"):
-            response = self.client.get('/catalog/0/')
-            self.assertEqual(response.status_code, 404)
-
-        with self.subTest("Item in catalog with float index"):
-            response = self.client.get('/catalog/1.2/')
-            self.assertEqual(response.status_code, 404)
-
-        with self.subTest("Item in catalog with correct index"):
-            response = self.client.get('/catalog/1203/')
-            self.assertEqual(response.status_code, 200)
+        cases = {
+            -1: 404,
+            0: 404,
+            1.2: 404,
+            "some_string": 404,
+            1203: 200
+        }
+        for case, result in cases.items():
+            with self.subTest(f"Item in catalog with {case} index"):
+                response = self.client.get(f'/catalog/{case}/')
+                self.assertEqual(response.status_code, result)
