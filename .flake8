@@ -2,4 +2,5 @@
 per-file-ignores =
     */models.py: E501
     */validators.py: E501
+    */migrations/*
     lyceum/settings.py: E501
