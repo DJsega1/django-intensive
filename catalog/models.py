@@ -23,16 +23,17 @@ class Category(PublishableBaseModel, NamedBaseModel, SlugBaseModel):
 
 
 class Item(PublishableBaseModel, NamedBaseModel):
-    class Meta:
-        verbose_name = 'товар'
-        verbose_name_plural = 'товары'
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='категория',
-                                 help_text='Выберите категорию')
     tags = models.ManyToManyField(Tag, verbose_name='теги')
     text = models.TextField(verbose_name='текст',
                             help_text=('Описание должно быть больше чем из 2-ух слов'
                                        'и содержать слова "превосходно" и "роскошно".'),
                             validators=[item_text_validator('превосходно', 'роскошно')])
+
+    class Meta:
+        verbose_name = 'товар'
+        verbose_name_plural = 'товары'
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='категория',
+                                 help_text='Выберите категорию')
 
     def __str__(self) -> str:
         return self.name

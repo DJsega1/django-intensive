@@ -23,32 +23,6 @@ class URLTests(TestCase):
                 self.assertEqual(response.status_code, result)
 
 
-'''
-# Testing catalog.models.Category
-class CategoryModelTests(TestCase):
-    def test_unable_create_category(self):
-        cases = ['sdf/asd', '1!asda', '$@#asd', 'ASD%1']
-        for case in cases:
-            with self.subTest('Create category with slug = "{case}"'):
-                with self.assertRaises(ValidationError):
-                    category = Item(
-                        name='Тестовая категория'
-                    )
-                    category.full_clean()
-
-    def test_create_category(self):
-        cases = ['sdfasd', '1asda', 'asd', 'ASD1']
-        for case in cases:
-            with self.subTest('Can\'t create category with slug = "{case}"'):
-                with self.assertRaises(ValidationError):
-                    category = Item(
-                        name='Тестовая категория'
-                    )
-                    category.full_clean()
-'''
-
-
-# Testing catalog.models.Item
 class ItemModelTests(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
@@ -66,6 +40,8 @@ class ItemModelTests(TestCase):
         cases = ['превосходно', 'роскошно',
                  'роскошнопревосходно', 'тестовое описание товара']
         for case in cases:
+            item_count = Item.objects.count()
+
             with self.subTest(f'Create item with text = "{case}"'):
                 with self.assertRaises(ValidationError):
                     item = Item(
@@ -74,10 +50,16 @@ class ItemModelTests(TestCase):
                         text=case
                     )
                     item.full_clean()
+                    item.save()
+                    item.tags.add(self.tag)
+
+                self.assertEqual(item_count, Item.objects.count())
 
     def test_create_item(self):
         cases = ['превосходно описанный товар', 'роскошно описанный товар']
         for case in cases:
+            item_count = Item.objects.count()
+
             with self.subTest(f'Can\'t create item with text = "{case}"'):
                 item = Item(
                         name='Тестовый айтем',
@@ -85,3 +67,7 @@ class ItemModelTests(TestCase):
                         text=case
                     )
                 item.full_clean()
+                item.save()
+                item.tags.add(self.tag)
+
+                self.assertEqual(item_count + 1, Item.objects.count())
