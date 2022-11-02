@@ -4,4 +4,3 @@ venv/
 .idea/
 *.sqlite3
 .env
-.flake8

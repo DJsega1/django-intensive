@@ -31,6 +31,4 @@ jobs:
         pip install -r requirements.txt
     - name: Lint with flake8
       run: |
-        flake8 --per-file-ignores='*/models.py:E501 */validators.py:E501'
-        flake8 --per_file_ignores='*/views.py:E501 */migrations/*:E501 lyceum/settings.py:E501'
         flake8 . --count --show-source --statistics
