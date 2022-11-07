@@ -1,5 +1,6 @@
 from django.db import models
-from Core.models import NamedBaseModel, PublishableBaseModel, SlugBaseModel
+from sorl.thumbnail import get_thumbnail
+from Core.models import NamedBaseModel, PublishableBaseModel, SlugBaseModel, ImageBaseModel
 from .validators import item_text_validator
 
 
@@ -23,7 +24,7 @@ class Category(PublishableBaseModel, NamedBaseModel, SlugBaseModel):
         return self.name
 
 
-class Item(PublishableBaseModel, NamedBaseModel):
+class Item(PublishableBaseModel, NamedBaseModel, ImageBaseModel):
     tags = models.ManyToManyField(Tag, verbose_name='теги')
     text = models.TextField(verbose_name='текст',
                             help_text=('Описание должно быть больше чем из 2-ух слов'
@@ -38,3 +39,14 @@ class Item(PublishableBaseModel, NamedBaseModel):
 
     def __str__(self) -> str:
         return self.name
+
+
+class Image(ImageBaseModel):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, verbose_name='товар', default=1)
+
+    class Meta:
+        verbose_name = 'изображение'
+        verbose_name_plural = 'изображения'
+
+    def __str__(self) -> str:
+        return f'Изображение товара {self.item}'

@@ -5,6 +5,7 @@ from string import punctuation
 
 def item_text_validator(*params):
     MIN_TEXT_LENGHT = 2
+    # TODO: regexp
 
     @wraps(item_text_validator)
     def validate(value):

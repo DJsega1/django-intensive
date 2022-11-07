@@ -1,4 +1,6 @@
 from django.db import models
+from sorl.thumbnail import get_thumbnail
+from django.utils.safestring import mark_safe
 
 
 class PublishableBaseModel(models.Model):
@@ -23,3 +25,23 @@ class SlugBaseModel(models.Model):
     class Meta:
         abstract = True
         verbose_name = 'Ссылающийся объект'
+
+
+class ImageBaseModel(models.Model):
+    upload = models.ImageField(upload_to='uploads/%Y/%m', default='default.jpg', verbose_name='изображение')
+
+    class Meta:
+        abstract = True
+        verbose_name = 'Объект-изображение'
+
+    @property
+    def get_img(self):
+        return get_thumbnail(self.upload, '300x300', crop='center', quality=51)
+
+    def image_tmb(self):
+        if self.upload:
+            return mark_safe(f'<img src="{self.get_img.url}">')
+        return 'No image'
+
+    image_tmb.short_description = 'изображение'
+    image_tmb.allow_tags = True

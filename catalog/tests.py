@@ -25,7 +25,7 @@ class URLTests(TestCase):
 
 class ItemModelTests(TestCase):
     @classmethod
-    def setUpClass(cls) -> None:
+    def setUpClass(cls):
         super().setUpClass()
         cls.category = Category.objects.create(
             name='Тестовая категория',
@@ -35,6 +35,10 @@ class ItemModelTests(TestCase):
             name='Тестовый тег',
             slug='test-tag-slug'
         )
+
+    def tearDown(self):
+        Item.objects.all().delete()
+        super().tearDown()
 
     def test_unable_create_item(self):
         cases = ['превосходно', 'роскошно',
