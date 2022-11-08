@@ -10,7 +10,7 @@ def item_text_validator(*params):
     def validate(value):
         words = [r'\b{}\b'.format(i) for i in params]
         value = value.lower()
-        if value.count(' ') <= MIN_TEXT_LENGHT:
+        if len(value.split(' ')) <= MIN_TEXT_LENGHT:
             raise ValidationError('В описании должны быть больше 2-ух слов.')
         for i in words:
             if search(i, value):
