@@ -8,6 +8,7 @@ def item_text_validator(*params):
 
     @wraps(item_text_validator)
     def validate(value):
+        done = False
         words = [r'\b{}\b'.format(i) for i in params]
         value = value.lower()
         if len(value.split(' ')) <= MIN_TEXT_LENGHT:
