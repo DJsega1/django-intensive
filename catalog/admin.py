@@ -19,6 +19,7 @@ class TagModelAdmin(admin.ModelAdmin):
 class CategoryModelAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
+
 @admin.register(Image)
 class ImageModelAdmin(admin.ModelAdmin):
     list_display = ('image_tmb', 'item',)

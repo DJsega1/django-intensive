@@ -1,6 +1,6 @@
 from django.db import models
-from sorl.thumbnail import get_thumbnail
 from Core.models import NamedBaseModel, PublishableBaseModel, SlugBaseModel, ImageBaseModel
+from ckeditor.fields import RichTextField
 from .validators import item_text_validator
 
 
@@ -26,10 +26,10 @@ class Category(PublishableBaseModel, NamedBaseModel, SlugBaseModel):
 
 class Item(PublishableBaseModel, NamedBaseModel, ImageBaseModel):
     tags = models.ManyToManyField(Tag, verbose_name='теги')
-    text = models.TextField(verbose_name='текст',
-                            help_text=('Описание должно быть больше чем из 2-ух слов'
-                                       'и содержать слова "превосходно" и "роскошно".'),
-                            validators=[item_text_validator('превосходно', 'роскошно')])
+    text = RichTextField(verbose_name='текст',
+                         help_text=('Описание должно быть больше чем из 2-ух слов'
+                                    'и содержать слова "превосходно" и "роскошно".'),
+                         validators=[item_text_validator('превосходно', 'роскошно')])
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='категория',
                                  help_text='Выберите категорию')
 

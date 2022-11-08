@@ -1,0 +1,14 @@
+{% load static %}
+
+<header>
+  <div class="container d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <img class="bi me-2" width="32" height="32" src="{% static 'img/android-chrome-512x512.png' %}">
+    </a>
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="{% url 'homepage:home' %}" class="nav-link mylink">Главная</a></li>
+      <li class="nav-item"><a href="{% url 'catalog:item-list' %}" class="nav-link mylink">Каталог</a></li>
+      <li class="nav-item"><a href="{% url 'about:description' %}" class="nav-link mylink">О нас</a></li>
+    </ul>
+  </div>
+</header>
