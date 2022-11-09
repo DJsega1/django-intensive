@@ -41,12 +41,23 @@ class Item(PublishableBaseModel, NamedBaseModel, ImageBaseModel):
         return self.name
 
 
-class Image(ImageBaseModel):
+class Preview(ImageBaseModel):
+    item = models.OneToOneField(Item, on_delete=models.CASCADE, verbose_name='товар', default=1)
+
+    class Meta:
+        verbose_name = 'превью'
+        verbose_name_plural = 'превью'
+
+    def __str__(self) -> str:
+        return f'превью товара {self.item}'
+
+
+class Gallery(ImageBaseModel):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, verbose_name='товар', default=1)
 
     class Meta:
         verbose_name = 'изображение'
-        verbose_name_plural = 'изображения'
+        verbose_name_plural = 'галерея'
 
     def __str__(self) -> str:
-        return f'Изображение товара {self.item}'
+        return f'изображение товара {self.item}'

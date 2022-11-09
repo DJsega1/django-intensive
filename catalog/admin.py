@@ -1,9 +1,22 @@
 from django.contrib import admin
-from .models import Tag, Category, Item, Image
+from .models import Tag, Category, Item, Preview, Gallery
+
+
+class PreviewInline(admin.TabularInline):
+    model = Preview
+    fk_name = "item"
+
+
+class GalleryInline(admin.TabularInline):
+    model = Gallery
+    fk_name = "item"
 
 
 @admin.register(Item)
 class ItemModelAdmin(admin.ModelAdmin):
+    inlines = [
+        PreviewInline, GalleryInline
+    ]
     list_display = ('name', 'is_published', 'image_tmb',)
     list_editable = ('is_published',)
     list_display_links = ('name',)
@@ -20,7 +33,13 @@ class CategoryModelAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
 
-@admin.register(Image)
-class ImageModelAdmin(admin.ModelAdmin):
+@admin.register(Preview)
+class PreviewModelAdmin(admin.ModelAdmin):
+    list_display = ('image_tmb', 'item',)
+    list_display_links = ('image_tmb',)
+
+
+@admin.register(Gallery)
+class GalleryModelAdmin(admin.ModelAdmin):
     list_display = ('image_tmb', 'item',)
     list_display_links = ('image_tmb',)
