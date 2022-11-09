@@ -2,6 +2,6 @@ __pycache__/
 *.log
 venv/
 .idea/
-*.sqlite3
 .env
 media/
+*.sqlite3
