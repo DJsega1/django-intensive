@@ -19,7 +19,7 @@ class ItemModelAdmin(admin.ModelAdmin):
     inlines = [
         PreviewInline, GalleryInline
     ]
-    list_display = ('name', 'is_published', 'image_tmb',)
+    list_display = ('name', 'is_published', 'preview_tmb',)
     list_editable = ('is_published',)
     list_display_links = ('name',)
     filter_horizontal = ('tags',)

@@ -1,0 +1,10 @@
+<div class="container bg-light rounded-4 my-2">
+  <div class="px-2 py-4">
+  <h4>{{item.name}}</h4>
+  <p>{{item.category}}</p>
+  <p>{{item.text|safe}}</p>
+  {% for tag in item.tags.all %}
+  <p>{{tag}}</p>
+  {% endfor %}
+  </div>
+</div>

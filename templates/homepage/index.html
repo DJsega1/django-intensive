@@ -5,7 +5,15 @@
 {% block content %}
     <div class="container">
         <div class="row w-50 mx-auto">
-            <h3 class="text-center mb-4">Главная</h3>
+            <h3 class="text-center">Главная</h3>
+        </div>
+    </div>
+    {% for item in items %}
+    {% include 'includes/card.html' with item=item %}
+    {% endfor %}
+    {% comment "cat" %}This is cat image below{% endcomment %}
+    <div class="container mt-4">
+        <div class="row w-50 mx-auto">
             <img src="{% static 'img/cat.jpg' %}" alt="Котик">
         </div>
     </div>

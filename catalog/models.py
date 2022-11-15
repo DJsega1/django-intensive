@@ -24,18 +24,24 @@ class Category(PublishableBaseModel, NamedBaseModel, SlugBaseModel):
         return self.name
 
 
-class Item(PublishableBaseModel, NamedBaseModel, ImageBaseModel):
+class Item(PublishableBaseModel, NamedBaseModel):
     tags = models.ManyToManyField(Tag, verbose_name='теги')
     text = RichTextField(verbose_name='текст',
-                         help_text=('Описание должно быть больше чем из 2-ух слов'
+                         help_text=('описание должно быть больше чем из 2-ух слов'
                                     'и содержать слова "превосходно" и "роскошно".'),
                          validators=[item_text_validator('превосходно', 'роскошно')])
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='категория',
-                                 help_text='Выберите категорию')
+                                 help_text='выберите категорию')
+    is_on_main = models.BooleanField(default=False, verbose_name='на главной')
 
     class Meta:
         verbose_name = 'товар'
         verbose_name_plural = 'товары'
+
+    def preview_tmb(self):
+        return Preview.objects.get(item=self.pk).image_tmb()
+    preview_tmb.allow_tags = True
+    preview_tmb.short_description = 'превью'
 
     def __str__(self) -> str:
         return self.name

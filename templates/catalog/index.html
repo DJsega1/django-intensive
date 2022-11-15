@@ -8,4 +8,7 @@
             <h3 class="text-center">Каталог</h3>
         </div>
     </div>
+    {% for item in items %}
+    {% include 'includes/card.html' with item=item %}
+    {% endfor %}
 {% endblock content %}
