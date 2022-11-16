@@ -24,7 +24,13 @@ class Category(PublishableBaseModel, NamedBaseModel, SlugBaseModel):
         return self.name
 
 
+class ItemManager(models.Manager):
+    def published(self):
+        return self.get_queryset().filter(is_published=True).select_related('category').order_by('category').prefetch_related('tags')
+
+
 class Item(PublishableBaseModel, NamedBaseModel):
+    objects = ItemManager()
     tags = models.ManyToManyField(Tag, verbose_name='теги')
     text = RichTextField(verbose_name='текст',
                          help_text=('описание должно быть больше чем из 2-ух слов'

@@ -4,7 +4,7 @@ from .models import Item
 
 def item_list(request):
     template = 'catalog/list.html'
-    items = Item.objects.filter(is_published=True).order_by('category')
+    items = Item.objects.published()
     context = {
         'items': items,
     }
