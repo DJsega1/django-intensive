@@ -3,7 +3,7 @@ from .models import Item
 
 
 def item_list(request):
-    template = 'catalog/index.html'
+    template = 'catalog/list.html'
     items = Item.objects.all().order_by('category')
     context = {
         'items': items,
