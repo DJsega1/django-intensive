@@ -13,7 +13,7 @@ def item_list(request):
 
 def item_detail(request, pk):
     template = 'catalog/detail.html'
-    item = get_object_or_404(Item, pk=pk)
+    item = get_object_or_404(Item.objects.published(), pk=pk)
     context = {
         'item': item,
     }
