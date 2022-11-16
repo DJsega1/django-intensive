@@ -26,7 +26,12 @@ class Category(PublishableBaseModel, NamedBaseModel, SlugBaseModel):
 
 class ItemManager(models.Manager):
     def published(self):
-        return self.get_queryset().filter(is_published=True).select_related('category').order_by('category').prefetch_related('tags')
+        return (self.get_queryset()
+                    .filter(is_published=True)
+                    .select_related('category')
+                    .order_by('category')
+                    .prefetch_related('tags')
+                )
 
 
 class Item(PublishableBaseModel, NamedBaseModel):
