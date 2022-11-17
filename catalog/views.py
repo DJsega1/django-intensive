@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Item
+
+from catalog.models import Item
 
 
 def item_list(request):

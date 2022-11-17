@@ -1,10 +1,11 @@
 from django.db import models
-from sorl.thumbnail import get_thumbnail
 from django.utils.safestring import mark_safe
+from sorl.thumbnail import get_thumbnail
 
 
 class PublishableBaseModel(models.Model):
-    is_published = models.BooleanField(default=True, verbose_name="Опубликовано")
+    is_published = models.BooleanField(default=True, 
+                                       verbose_name="Опубликовано")
 
     class Meta:
         abstract = True
@@ -12,7 +13,8 @@ class PublishableBaseModel(models.Model):
 
 
 class NamedBaseModel(models.Model):
-    name = models.CharField(max_length=150, verbose_name="Название", help_text="max 150 символов")
+    name = models.CharField(max_length=150, verbose_name="Название",
+                            help_text="max 150 символов")
 
     class Meta:
         abstract = True
@@ -28,7 +30,11 @@ class SlugBaseModel(models.Model):
 
 
 class ImageBaseModel(models.Model):
-    upload = models.ImageField(upload_to='uploads/%Y/%m', default='default.jpg', verbose_name='изображение')
+    upload = models.ImageField(
+            upload_to='uploads/%Y/%m', 
+            default='default.jpg', 
+            verbose_name='изображение'
+        )
 
     class Meta:
         abstract = True
@@ -36,7 +42,8 @@ class ImageBaseModel(models.Model):
 
     @property
     def get_img(self):
-        return get_thumbnail(self.upload, '300x300', crop='center', quality=51)
+        return get_thumbnail(self.upload, '300x300',
+                             crop='center', quality=51)
 
     def image_tmb(self):
         if self.upload:

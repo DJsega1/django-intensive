@@ -1,5 +1,6 @@
 from functools import wraps
 from re import search
+
 from django.core.exceptions import ValidationError
 
 
@@ -18,5 +19,6 @@ def item_text_validator(*params):
                 done = True
                 break
         if not done:
-            raise ValidationError(f'В описании должны быть слова {", ".join(params)}.')
+            raise ValidationError(f'В описании должны быть \
+                                  слова {", ".join(params)}.')
     return validate

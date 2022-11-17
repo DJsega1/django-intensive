@@ -1,5 +1,6 @@
-from pathlib import Path
 import os
+from pathlib import Path
+
 from environ import Env
 from django_cleanup.signals import cleanup_pre_delete
 from sorl.thumbnail import delete

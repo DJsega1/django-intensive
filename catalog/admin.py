@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Tag, Category, Item, Preview, Gallery
+
+from catalog.models import Tag, Category, Item, Preview, Gallery
 
 
 class PreviewInline(admin.TabularInline):
