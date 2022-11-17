@@ -7,8 +7,8 @@ def home(request):
     template = 'homepage/index.html'
     MAX_TEXT_WORDS = 10
     items = (Item.objects.published()
-            .filter(is_on_main=True)
-            .order_by('name'))
+             .filter(is_on_main=True)
+             .order_by('name'))
     context = {
         'MAX_TEXT_WORDS': MAX_TEXT_WORDS,
         'items': items

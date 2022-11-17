@@ -4,7 +4,7 @@ from sorl.thumbnail import get_thumbnail
 
 
 class PublishableBaseModel(models.Model):
-    is_published = models.BooleanField(default=True, 
+    is_published = models.BooleanField(default=True,
                                        verbose_name="Опубликовано")
 
     class Meta:
@@ -31,8 +31,8 @@ class SlugBaseModel(models.Model):
 
 class ImageBaseModel(models.Model):
     upload = models.ImageField(
-            upload_to='uploads/%Y/%m', 
-            default='default.jpg', 
+            upload_to='uploads/%Y/%m',
+            default='default.jpg',
             verbose_name='изображение'
         )
 

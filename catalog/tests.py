@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 
 from catalog.models import Category, Item, Tag
 
+
 # Testing catalog.urls
 class URLTests(TestCase):
     fixtures = ['fixtures/catalog.json', ]
