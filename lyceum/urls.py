@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('homepage.urls', namespace='homepage')),
     path('about/', include('about.urls', namespace='about')),
     path('catalog/', include('catalog.urls', namespace='catalog')),
+    path('feedback/', include('feedback.urls', namespace='feedback')),
     path('admin/', admin.site.urls),
 ]
 

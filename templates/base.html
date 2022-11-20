@@ -15,9 +15,11 @@
     <body class="d-flex flex-column h-100">
         {% include 'includes/header.html' %}
         <main class="flex-shrink-0">
+        <div class="container">
         {% block content %}
             Контента нет
         {% endblock content %}
+        </div>
         </main>
         {% include 'includes/footer.html' %}
         <script src="{% static 'js/bootstrap.min.js' %}"></script>

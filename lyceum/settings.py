@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'ckeditor',
     'about',
+    'feedback',
     'catalog',
     'homepage',
     'Core',
@@ -107,6 +108,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = 'media/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = BASE_DIR / 'send_mail'
 
 
 def sorl_delete(**kwargs):

@@ -64,12 +64,11 @@ class Item(PublishableBaseModel, NamedBaseModel):
     def preview_tmb(self):
         return Preview.objects.get(item=self.pk).image_tmb()
 
-    preview_tmb.allow_tags = True
-    preview_tmb.short_description = 'превью'
-
     def __str__(self) -> str:
         return self.name
 
+    preview_tmb.allow_tags = True
+    preview_tmb.short_description = 'превью'
 
 class Preview(ImageBaseModel):
     item = models.OneToOneField(Item, on_delete=models.CASCADE,
