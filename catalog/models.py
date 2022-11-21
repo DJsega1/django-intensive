@@ -70,6 +70,7 @@ class Item(PublishableBaseModel, NamedBaseModel):
     preview_tmb.allow_tags = True
     preview_tmb.short_description = 'превью'
 
+
 class Preview(ImageBaseModel):
     item = models.OneToOneField(Item, on_delete=models.CASCADE,
                                 verbose_name='товар', default=1)
