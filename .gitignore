@@ -5,3 +5,4 @@ venv/
 .env
 media/
 *.sqlite3
+send_mail/

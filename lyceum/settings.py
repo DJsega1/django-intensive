@@ -11,15 +11,17 @@ env = Env(
     SECRET_KEY=(str),
     DEBUG=(bool),
     ALLOWED_HOSTS=(list),
+    SERVER_EMAIL=(str),
+    ADMIN_EMAIL=(str),
 )
 
 Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = env('SECRET_KEY')
-
 DEBUG = env('DEBUG')
-
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+SERVER_EMAIL = env('SERVER_EMAIL')
+ADMIN_EMAIL = env('ADMIN_EMAIL')
 
 INTERNAL_IPS = [
     '127.0.0.1',

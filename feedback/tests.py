@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from feedback.models import Feedback, FeedbackForm
+from feedback.models import Feedback
+from feedback.forms import FeedbackForm
 
 
 class FeedbackFormTest(TestCase):
