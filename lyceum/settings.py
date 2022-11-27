@@ -114,6 +114,9 @@ MEDIA_URL = 'media/'
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / 'send_mail'
 
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+
 
 def sorl_delete(**kwargs):
     delete(kwargs['file'])
