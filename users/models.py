@@ -25,7 +25,7 @@ class User(AbstractUser):
         null=True,
         help_text='Не более 150 символов. Буквы, цифры и @/./+/-/_ .',
         validators=[
-            UnicodeUsernameValidator,
+            UnicodeUsernameValidator(),
         ],
     )
     birthday = models.DateField(

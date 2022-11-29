@@ -6,9 +6,11 @@
             <div class="d-flex flex-row align-items-middle mb-0">
                 <p class="my-auto me-3">{{ field.label_tag }}</p>
                 {{ field }}
-                {{ field.errors }}
+                {% for error in field.errors %}
+                <p class="my-auto ms-3 alert alert-danger">{{ error }}</p>
+                {% endfor %}
             </div>
-            <p class="text-muted">{{ field.help_text }}</p>
+            <p class="text-muted">{{ field.help_text|safe }}</p>
         </div>
         {% endfor %}
         {{form.non_field_errors}}

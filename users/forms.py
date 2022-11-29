@@ -5,6 +5,8 @@ from django.contrib.auth.forms import (
     UserCreationForm as BaseUserCreationForm,
     UserChangeForm as BaseUserChangeForm,
 )
+from django.utils.html import strip_tags
+from django.template.defaultfilters import linebreaksbr
 
 from users.models import User
 
@@ -20,6 +22,12 @@ class UserCreationForm(BaseUserCreationForm):
     class Meta:
         model = User
         fields = ('email', 'username', 'birthday', )
+
+    def __init__(self, *args, **kwargs):
+        super(UserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['password1'].help_text = linebreaksbr(
+            strip_tags(self.fields['password1'].help_text).replace('.', '.\n')
+        )
 
 
 class UserChangeForm(BaseUserChangeForm):
