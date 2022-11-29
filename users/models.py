@@ -1,10 +1,14 @@
-from django.contrib.auth.models import AbstractUser
+from datetime import date
+
+from django.contrib.auth.models import (
+    AbstractUser, UserManager as AbstractUserManager
+)
 from django.contrib.auth.validators import UnicodeUsernameValidator
-from django.contrib.auth.models import BaseUserManager
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 
-class UserManager(BaseUserManager):
+class UserManager(AbstractUserManager):
     def active(self):
         queryset = self.get_queryset().filter(is_active=True)
         queryset.filter(username=None).update(username='Не указано')
@@ -20,7 +24,9 @@ class User(AbstractUser):
         blank=True,
         null=True,
         help_text='Не более 150 символов. Буквы, цифры и @/./+/-/_ .',
-        validators=[UnicodeUsernameValidator],
+        validators=[
+            UnicodeUsernameValidator
+        ],
         error_messages={
             'unique': 'Пользователь с таким адресом уже существует',
         },
@@ -29,10 +35,14 @@ class User(AbstractUser):
             blank=True,
             null=True,
             verbose_name='день рождения',
+            validators=[
+                MinValueValidator(limit_value=date(1900, 1, 1)),
+                MaxValueValidator(limit_value=date.today())
+            ],
     )
     USERNAME_FIELD = 'email'
     EMAIL_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username', ]
 
     class Meta:
         verbose_name = 'пользователь'

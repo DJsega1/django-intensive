@@ -13,7 +13,7 @@ class UserAdmin(BaseUserAdmin):
     list_display = ('email', 'birthday', 'is_staff')
     list_filter = ('is_staff',)
     fieldsets = (
-        (None, {'fields': ('email', 'password')}),
+        (None, {'fields': ('email',)}),
         ('Личная информация', {'fields': ('username', 'birthday',)}),
         ('Разрешения', {'fields': ('is_active', 'is_staff',)}),
     )

@@ -5,4 +5,5 @@
 {% block content %}
   <h2>Профиль</h2>
   {% include 'includes/form.html' with submit_text='Изменить' form=form %}
+  <a class="btn btn-danger" href="{% url 'logout' %}" role="button">Выйти</a>
 {% endblock %}

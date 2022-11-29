@@ -10,6 +10,12 @@
       <li class="nav-item"><a href="{% url 'catalog:item-list' %}" class="nav-link mylink">Каталог</a></li>
       <li class="nav-item"><a href="{% url 'about:description' %}" class="nav-link mylink">О нас</a></li>
       <li class="nav-item"><a href="{% url 'feedback:feedback' %}" class="nav-link mylink">Отзыв</a></li>
+      <li class="nav-item"><a href="{% url 'user-list' %}" class="nav-link mylink">Список пользователей</a></li>
+      {% if user.is_authenticated %}
+        <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link mylink">Профиль</a></li>
+      {% else %}
+        <li class="nav-item"><a href="{% url 'login' %}" class="nav-link mylink">Войти</a></li>
+      {% endif %}
     </ul>
   </div>
 </header>

@@ -26,7 +26,7 @@ class UserChangeForm(BaseUserChangeForm):
     birthday = forms.DateField(
         label='Дата рождения',
         widget=forms.SelectDateWidget(
-            years=[i for i in range(1900, date.today().year - 14)],
+            years=[i for i in range(1900, date.today().year)],
         )
     )
 

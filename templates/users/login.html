@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}Вход{% endblock title %}
+
 {% block content %}
 <h2>Вход</h2>
 {% include 'includes/form.html' with submit_text='Войти' form=form %}
+<p>Ещё нет аккаунта? Зарегистрируйтесь <a href={% url 'signup' %}>здесь</a></p>
 {% endblock content %}
