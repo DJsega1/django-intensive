@@ -1,0 +1,14 @@
+<a href="{% url 'user-detail' user.pk %}" class="mylink" style="text-decoration: none;">
+    <div class="container bg-light rounded-4 my-2 d-flex justify-content-between">
+      <div class="px-2 py-4">
+      <h4>{{user.email}}</h4>
+      Имя пользователя: {{user.username}}
+      <br>
+      {% if user.birthday is None %}
+      Дата рождения: Не указано
+      {% else %}
+      Дата рождения: {{user.birthday}}
+      {% endif %}
+      </div>
+    </div>
+</a>

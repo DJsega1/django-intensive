@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+from django.urls import reverse_lazy
 from environ import Env
 from django_cleanup.signals import cleanup_pre_delete
 from sorl.thumbnail import delete
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'catalog',
     'homepage',
     'Core',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -55,8 +57,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
-
-ROOT_URLCONF = 'lyceum.urls'
 
 TEMPLATES = [
     {
@@ -114,8 +114,15 @@ MEDIA_URL = 'media/'
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / 'send_mail'
 
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
+ROOT_URLCONF = 'lyceum.urls'
+
+LOGIN_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = reverse_lazy('homepage:home')
+LOGOUT_REDIRECT_URL = reverse_lazy('homepage:home')
+
+AUTH_USER_MODEL = 'users.User'
+
+DATE_INPUT_FORMATS = ['%d.%m.%Y', ]
 
 
 def sorl_delete(**kwargs):

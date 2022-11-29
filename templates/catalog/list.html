@@ -10,6 +10,6 @@
     </div>
     {% for item in items %}
     {% ifchanged item.category %}<h3 class="container my-5">{{item.category}}</h3>{% endifchanged %}
-    {% include 'includes/card.html' with item=item %}
+    {% include 'includes/item_card.html' with item=item %}
     {% endfor %}
 {% endblock content %}

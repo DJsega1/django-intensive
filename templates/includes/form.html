@@ -1,0 +1,14 @@
+<form method="post">
+    {% csrf_token %}
+    <div class='mb-3'>
+        {% for field in form %}
+        <div class="d-flex flex-row align-items-middle mb-2">
+            <p class="my-auto me-3">{{ field.label_tag }}</p>
+            {{ field }}
+            <p class="text-muted ms-3 my-auto">{{ field.help_text }}</p>
+            {{ form.errors.field }}
+        </div>
+        {% endfor %}
+    </div>
+    <input type="submit" value="{{ submit_text }}">
+</form>

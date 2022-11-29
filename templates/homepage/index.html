@@ -8,7 +8,7 @@
             <h3 class="text-center">Главная</h3>
     </div>
     {% for item in items %}
-    {% include 'includes/card.html' with item=item %}
+    {% include 'includes/item_card.html' with item=item %}
     {% endfor %}
     {% comment "cat" %}This is cat image below{% endcomment %}
     <div class="container mt-4">

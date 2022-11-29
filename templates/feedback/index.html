@@ -1,17 +1,5 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    <div class='mb-3'>
-        {% for field in form %}
-        <div class="d-flex flex-row align-items-middle">
-            <p class="my-auto me-3">{{ field.label_tag }}</p>
-            {{ field }}
-            <p class="text-muted ms-3 my-auto">{{ field.help_text }}</p>
-        </div>
-        {% endfor %}
-    </div>
-    <input type="submit" value="Отправить">
-</form>
+{% include 'includes/form.html' with submit_text='Отправить' form=form %}
 {% endblock content %}
